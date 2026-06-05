@@ -8,9 +8,9 @@ st.write("Unlocking Lifetimes: Visualizing Progress in Longevity and Poverty Era
 
 @st.cache_data
 def load_data():
-    lex = pd.read_csv('app/lex.csv', index_col=0)
-    pop = pd.read_csv('app/pop.csv', index_col=0)
-    gni = pd.read_csv('app/ny_gnp_pcap_pp_kd.csv', index_col=0).drop(columns=['name'])
+    lex = pd.read_csv('lex.csv', index_col=0)
+    pop = pd.read_csv('pop.csv', index_col=0)
+    gni = pd.read_csv('ny_gnp_pcap_pp_kd.csv', index_col=0).drop(columns=['name'])
 
     lex = lex.ffill(axis=1)
     pop = pop.ffill(axis=1)
@@ -82,3 +82,4 @@ if play:
         time.sleep(0.3)
 else:
     chart.plotly_chart(make_chart(selected_year), use_container_width=True)
+    
